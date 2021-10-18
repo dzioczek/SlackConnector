@@ -36,6 +36,11 @@ namespace SlackConnector.Connections.Monitoring
             await pingMethod().ConfigureAwait(false);
         }
 
+        public void StopMonitor()
+        {
+            _timer?.Dispose();
+        }
+
         private void TimerTick()
         {
             if (NeedsToReconnect() && !_isReconnecting)

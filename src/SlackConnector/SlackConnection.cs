@@ -286,6 +286,7 @@ namespace SlackConnector
             {
                 await _webSocketClient.Close();
             }
+            _pingPongMonitor.StopMonitor();
         }
 
         public async Task Say(BotMessage message)
